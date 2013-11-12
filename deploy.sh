@@ -25,7 +25,7 @@ play dist
 echo "====================================="
 echo "Copying the zip to the openshift repo"
 echo "====================================="
-cp target/universal wildbee-*\.zip $REPOPATH/wildbee.zip
+cp target/universal/wildbee-*\.zip $REPOPATH/wildbee.zip
 
 popd $1
 

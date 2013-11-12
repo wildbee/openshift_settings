@@ -12,9 +12,8 @@ cd <project>
 rhc cartridge-add -a <project>  -c postgresql-9.2
 
 # get the openshift settings
-git clone https://github.com/wildbee/openshift_settings.git
-mv openshift_settings .openshift
+git clone https://github.com/wildbee/openshift_settings.git .openshift
 
 # push to openshift and run
-sh ./openshift/deploy.sh <path_of_wildbee_repo>
+sh .openshift/deploy.sh <path_of_wildbee_repo>
 ```

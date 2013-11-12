@@ -2,6 +2,6 @@
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 cd ${OPENSHIFT_REPO_DIR}
 
-if [[ -f "server.pid" ]]; then
-  ${OPENSHIFT_DATA_DIR}play-2.2.1/play stop
+if ! [ -z `pgrep java` ]; then
+    kill `pgrep java`
 fi
