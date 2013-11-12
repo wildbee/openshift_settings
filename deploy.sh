@@ -33,6 +33,7 @@ popd $1
 echo "========================="
 echo "Unzipping the wildbee zip"
 echo "========================="
+pushd ${REPOPATH}
 unzip wildbee.zip
 rm wildbee.zip
 
@@ -50,3 +51,5 @@ echo "=================================="
 git add --all
 git commit -am 'Yet another update'
 git push
+
+popd
