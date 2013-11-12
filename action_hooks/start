@@ -1,0 +1,17 @@
+#!/bin/bash
+# The logic to start up your application should be put in this
+# script. The application will work only if it binds to
+# $OPENSHIFT_DIY_IP:8080
+cd ${OPENSHIFT_REPO_DIR}
+
+.openshift/action_hooks/stop
+
+#tell play to save log files in openshift log dir
+export PLAY_LOG_PATH=${OPENSHIFT_DIY_LOG_DIR}
+
+nohup sh wildbee/bin/wildbee \
+-Ddb.default.url="jdbc:postgresql://${OPENSHIFT_POSTGRESQL_DB_HOST}:${OPENSHIFT_POSTGRESQL_DB_PORT}/${OPENSHIFT_APP_NAME}" \
+-Ddb.default.user=${OPENSHIFT_POSTGRESQL_DB_USERNAME} \
+-Ddb.default.password=${OPENSHIFT_POSTGRESQL_DB_PASSWORD} \
+-Dhttp.port=${OPENSHIFT_DIY_PORT} -Dhttp.address=${OPENSHIFT_DIY_IP} \
+-DapplyEvolutions.default=true &

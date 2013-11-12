@@ -1,0 +1,7 @@
+#!/bin/bash
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+cd ${OPENSHIFT_REPO_DIR}
+
+if [[ -f "server.pid" ]]; then
+  ${OPENSHIFT_DATA_DIR}play-2.2.1/play stop
+fi
