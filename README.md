@@ -20,4 +20,10 @@ sh .openshift/deploy.sh <path_of_wildbee_repo>
 ```
 
 ## FAQ
+- Why don't we compile the Play code in Openshift?
+Openshift has a 512 MB memory limit. When attempting to compile the code in
+Openshift, Java needs more than 512 MB of memory and the Openshift memory
+manager will kill the Java process.
 
+- Where is all the magic happening?
+See `action_hooks/start` to see what's happening.
