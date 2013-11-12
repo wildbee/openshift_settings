@@ -11,7 +11,7 @@ cd <project>
 rhc cartridge-add -a <project>  -c postgresql-9.2
 
 # delete the default openshift settings and get the custom openshift settings
-that will work with Play
+# that will work with Play
 rm -r .openshift
 git clone https://github.com/wildbee/openshift_settings.git .openshift
 
