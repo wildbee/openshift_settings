@@ -12,6 +12,13 @@ SCRIPT="`readlink -e $0`"
 SCRIPTPATH="`dirname $SCRIPT`"
 REPOPATH="`dirname $SCRIPTPATH`"
 
+echo "==========================="
+echo "Updating Openshift settings"
+echo "==========================="
+pushd ${SCRIPTPATH}
+git pull --rebase
+popd ${SCRIPTPATH}
+
 echo "Path of Wildbee repo:" $WILDBEE_REPO
 
 # Compile it
@@ -34,6 +41,10 @@ echo "========================="
 echo "Unzipping the wildbee zip"
 echo "========================="
 pushd ${REPOPATH}
+
+# remove current repo folder if any
+rm -r wildbee
+
 unzip wildbee.zip
 rm wildbee.zip
 
