@@ -43,9 +43,7 @@ echo "========================="
 pushd ${REPOPATH}
 
 # remove current repo folder if any
-if [-d wildbee ]; then
-    rm -r wildbee
-fi
+rm -r wildbee
 
 unzip wildbee.zip
 rm wildbee.zip
